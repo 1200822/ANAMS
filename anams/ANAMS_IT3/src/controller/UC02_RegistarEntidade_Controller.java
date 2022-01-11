@@ -22,7 +22,7 @@ public class UC02_RegistarEntidade_Controller {
     }
     
     public String getDesignacao(){
-        return this.entidade.getDesignaçao();
+        return this.entidade.getDesignacao();
     }
     
     public ArrayList<TipoEntidade> getTipoEntidade(){
@@ -34,7 +34,7 @@ public class UC02_RegistarEntidade_Controller {
     }
     
     public void setDesignacao(String designacao){
-        this.entidade.setDesignaçao(designacao);
+        this.entidade.setDesignacao(designacao);
     }
     
     public void setTipoEntidade(ArrayList<TipoEntidade> tiposEntidade){

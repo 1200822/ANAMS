@@ -27,11 +27,6 @@ public class UC01_EspecificarTipoEnt_Controller {
     {
         this.tipoEntidade.setDesignacao(designacao);
     }
-        
-    public String getDesign()
-    {
-        return this.tipoEntidade.getDesignacao();
-    }
     
     public boolean registaTipoEntidade()
     {

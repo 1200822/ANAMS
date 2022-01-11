@@ -30,7 +30,7 @@ public class UC01_EspecificarTipoEntidadeUI {
 
         controller.novoTipoEntidade();
 
-        controller.setTipo(introduzDados());
+        controller.setDesignacao(introduzDados());
 
         apresentaDados();
 

@@ -6,12 +6,12 @@
 package controller;
 
 
-import model.Artista;
+import model.ArtistaBanda;
 import model.Convite;
 import model.Convite.Estado;
 import model.Festival;
 import model.GestFest;
-import utilitarios.DataHora;
+import utils.DataHora;
 
 /**
  *
@@ -21,7 +21,7 @@ public class UC07_ConvidarArtistaBandaFestival_Controller {
     private final GestFest empresa;
     private Convite convite;
     private Festival festival;
-    private Artista artista;
+    private ArtistaBanda artista;
     
     public UC07_ConvidarArtistaBandaFestival_Controller(GestFest empresa){
         this.empresa = empresa;
@@ -31,8 +31,8 @@ public class UC07_ConvidarArtistaBandaFestival_Controller {
         this.convite = festival.novoConvite();
     }
     
-    public Artista getArtistaConvite(){
-        return this.convite.getArtista();
+    public ArtistaBanda getArtistaConvite(){
+        return this.convite.getArtistaBanda();
     }
     
     public String getNomeArtistaConvite(){
@@ -55,8 +55,8 @@ public class UC07_ConvidarArtistaBandaFestival_Controller {
         return this.convite.getEstado();
     }
     
-    public void setArtistaConvite(Artista artista){
-        this.convite.setArtista(artista);
+    public void setArtistaConvite(ArtistaBanda artista){
+        this.convite.setArtistaBanda(artista);
     }
     
     public void setNomeArtistaConvite(String nome){
@@ -115,7 +115,7 @@ public class UC07_ConvidarArtistaBandaFestival_Controller {
         this.artista.setNroTelemovel(nroTelemovel);
     }
     
-    public boolean registaArtista(Artista artista){
+    public boolean registaArtista(ArtistaBanda artista){
         return this.empresa.registaArtista(artista);
     }
     
@@ -131,7 +131,7 @@ public class UC07_ConvidarArtistaBandaFestival_Controller {
         return this.festival.registaConvite(this.convite);
     }
     
-    public Artista getArtista(){
+    public ArtistaBanda getArtista(){
         return this.artista;
     }
     
