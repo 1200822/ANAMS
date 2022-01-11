@@ -1,34 +1,45 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package controller;
 
 import model.GestFest;
 import model.TipoEntidade;
 
-/**
- *
- * @actor grupo2
- */
 
 public class UC01_EspecificarTipoEnt_Controller {
     private final GestFest empresa;
     private TipoEntidade tipoEntidade;
-
-    public UC01_EspecificarTipoEnt_Controller(GestFest empresa) {
-        this.empresa = empresa;
+    
+    public UC01_EspecificarTipoEnt_Controller(GestFest empresa){
+        this.empresa=empresa;
     }
-
-    public void novoTipoEntidade() {
-        tipoEntidade = new TipoEntidade();
+    
+    public void novoTipoEntidade()
+    {
+        this.tipoEntidade = empresa.novoTipoEntidade();
     }
-
-    public void setTipo(String tipo) {
-        tipoEntidade.setDesignacao(tipo);
+    
+    public void setDesignacao(String designacao)
+    {
+        this.tipoEntidade.setDesignacao(designacao);
     }
-
-    public String getTipoEntidadeAsString() {
-        return this.tipoEntidade.toString();
+        
+    public String getDesign()
+    {
+        return this.tipoEntidade.getDesignacao();
     }
-
-    public boolean registaTipoEntidade() {
+    
+    public boolean registaTipoEntidade()
+    {
         return this.empresa.registaTipoEntidade(this.tipoEntidade);
+    }
+
+    public String getTipoEntidadeAsString()
+    {
+        return this.tipoEntidade.toString();
     }
 }

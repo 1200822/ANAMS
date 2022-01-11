@@ -1,28 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package controller;
 
 import java.util.ArrayList;
-import model.AssFestEnt;
 import model.Entidade;
 import model.Festival;
 import model.GestFest;
 
-/**
- *
- * @actor grupo2 
- */
-
 public class UC06_AssociarEntidade_Controller {
-    
     private GestFest gestfest;
-    private Festival festi;
-    private Entidade enti;
-    private AssFestEnt ass;
+    private Festival festival;
+    private Entidade entidade;
+
     private GestFest empresa;
 
     public UC06_AssociarEntidade_Controller(GestFest empresa) {
@@ -30,25 +17,25 @@ public class UC06_AssociarEntidade_Controller {
     }
 
     public void consultaFestival(String festival) {
-        this.festi = gestfest.procuraFestival(festival);
-    }
-    
-    public void consultaEntidade(String entidade) {
-        this.enti = gestfest.procuraEntidade(entidade);
-    }
-    
-   /* public boolean associarEntidadeFestival() {
-        ArrayList<AssFestEnt> ass ;
-        System.out.println(enti.getTiposEnt());
-        
-    }*/
-
-    public String getFestivalAsString() {
-        return this.festi.toString();
+        this.festival = gestfest.procurarFestival(festival);
     }
 
-    public String getEntidadeAsString() {
-        return this.enti.toString();
+    public void consultaEntidade(int referencia) {
+        this.entidade = gestfest.procurarEntidade(referencia);
     }
-    
+
+    public boolean associarFestivalEntidade(){
+        ArrayList<Entidade> e = this.festival.getEntidadeColaboradora();
+        e.add(entidade);
+        this.festival.setEntidadeColaboradora(e);
+        return true;
+    }
+
+    public String getFestivalAsString(){
+        return this.festival.toString();
+    }
+
+    public String getEntidadeAsString(){
+        return this.entidade.toString();
+    }
 }

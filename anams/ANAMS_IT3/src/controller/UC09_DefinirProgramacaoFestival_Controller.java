@@ -5,29 +5,61 @@
  */
 package controller;
 
-import java.util.Date;
+import java.time.LocalDate;
+import model.ArtistaBanda;
+import model.Festival;
 import model.GestFest;
-import model.Programacao;
+import model.ProgramaDiario;
+import model.ProgramacaoFestival;
 
-/**
- *
- * @author hugoqueiroz
- */
 public class UC09_DefinirProgramacaoFestival_Controller {
-    
     private GestFest empresa;
-    private Programacao programacao;
-    
+    private Festival festival;
+    private ProgramacaoFestival pf;
+    private ProgramaDiario pd;
+
     public UC09_DefinirProgramacaoFestival_Controller(GestFest empresa) {
         this.empresa = empresa;
     }
 
-    public boolean valida() {
-        return true;
+    public void ListarFestivais() {
+        empresa.getFestivaisAsString();
     }
 
-    public boolean setDados() {
-        return true;
+    public void ProcurarFestival(String nome) {
+        this.festival = empresa.procurarFestivalDesgn(nome);
     }
-    
+
+    public Festival getFestival() {
+        return this.festival;
+    }
+
+    public LocalDate getDataInicioFestival() {
+        return festival.getDataInicioFestival();
+    }
+
+    public LocalDate getDataFimFestival() {
+        return festival.getDataFimFestival();
+    }
+
+    public ProgramacaoFestival getPf() {
+        return pf;
+    }
+
+    public void setPf(ProgramacaoFestival pf) {
+        this.pf = pf;
+    }
+
+    public ProgramaDiario getPd() {
+        return pd;
+    }
+
+    public void setPd(ProgramaDiario pd) {
+        this.pd = pd;
+    }
+
+    public ArtistaBanda ProcurarArtista(String artista) {
+         return empresa.procurarArtistaString(artista);
+    }
+
 }

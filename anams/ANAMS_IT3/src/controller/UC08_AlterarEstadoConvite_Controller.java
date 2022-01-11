@@ -4,64 +4,50 @@
  * and open the template in the editor.
  */
 package controller;
-
-//import model.Artista;
-import model.Estado;
+import model.Convite;
+import model.Convite.Estado;
 import model.Festival;
 import model.GestFest;
 
 /**
  *
- * @author hugoqueiroz
+ * @author grupo2
  */
 public class UC08_AlterarEstadoConvite_Controller {
-    
     private final GestFest empresa;
-    private Estado estado;
-
-    public UC08_AlterarEstadoConvite_Controller(GestFest empresa) {
+    private Festival festival;
+    private Convite convite;
+    
+    public UC08_AlterarEstadoConvite_Controller(GestFest empresa){
         this.empresa = empresa;
     }
-
-    public void procurarConvite(Festival inserirFestival, String inserirArtista) {
-
-    }
-
-    public void setEstado(Estado inserirEstado) {
-
-    }
-
-    public Object getListaConvites() {
-        return empresa.getListaConvites();
+    
+    public void consultaFestival(String festival){
+        this.festival = empresa.procurarFestival(festival);
     }
     
-
-    public Object obterConvite(int cod) {
-        this.estado = this.empresa.obterEstado(cod);
-        return estado;
-
+    public void consultaConvite(int codigo){
+        this.convite = festival.procurarConvite(codigo);
     }
-
-    public void setDados(String estado) {
-
-//    if (estado.equalsIgnoreCase(Estado.Pronto.toString())) {
-//            this.estado.setEstado(Estado.Pronto);
-//            estado.valida();
-//        }
-//
-//    }
-
-//    public boolean valida() {
-//        return true;
-//    
-//    }
-
-//    public String obterDados() {
-//    
-//    return "Estado do Convite:\n" + this.estado.toString();
-//    
-//    }
-
-}
     
+    public Festival getFestival(){
+        return this.festival;
+    }
+    
+    public boolean alteraEstadoConvite(Estado estado){
+        this.convite.setEstado(estado);
+        return true;
+    }
+    
+    public String getListaConvitesAsString(){
+        return this.festival.getListaConvitesAsString();
+    }
+    
+    public String getFestivalAsString(){
+        return this.festival.toString();
+    }
+    
+    public String getConviteAsString(){
+        return this.convite.toString();
+    }
 }

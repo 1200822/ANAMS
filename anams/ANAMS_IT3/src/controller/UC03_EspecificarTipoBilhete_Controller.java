@@ -6,36 +6,35 @@
 
 package controller;
 
-import java.util.ArrayList;
 import model.GestFest;
 import model.TipoBilhete;
 
-/**
- *
- * @actor grupo2 
- */
 
 public class UC03_EspecificarTipoBilhete_Controller {
-    
     private final GestFest empresa;
-    private TipoBilhete tipoB;
-    private ArrayList<TipoBilhete> lstTipoBilhete;
+    private TipoBilhete tipoBilhete;
     
     public UC03_EspecificarTipoBilhete_Controller(GestFest empresa){
-        this.empresa = empresa;
+        this.empresa=empresa;
     }
-
-    public void adicionaTipoBilhete(TipoBilhete tipoBilhete){
-        lstTipoBilhete.add(tipoBilhete);
+    
+    public void novoTipoBilhete(){
+        this.tipoBilhete=empresa.novoTipoBilhete();
     }
-   
-    public String getTipoBilheteAsString()
-    {
-        return this.tipoB.toString();
+    
+    public String getTipoBilhete(String tipo){
+        return this.tipoBilhete.getTipoBilhete();
     }
-
+    
+    public void setTipoBilhete(String tipo){
+        this.tipoBilhete.setTipoBilhete(tipo);
+    }
+    
     public boolean registaTipoBilhete(){
-        return empresa.setLstTipoBilhete(lstTipoBilhete);
+        return this.empresa.registaTipoBilhete(this.tipoBilhete);
     }
-
+    
+    public String getTipoBilheteAsString(){
+        return this.tipoBilhete.toString();
+    }
 }
