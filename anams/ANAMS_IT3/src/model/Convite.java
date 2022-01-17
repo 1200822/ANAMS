@@ -1,65 +1,64 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model;
+
+import utils.DataHora;
 
 /**
  *
- * @author Asus
+ * @author grupo2
  */
 public class Convite {
-    public enum Estado{
-        sem_resposta,aceite,rejeitado,anulado
+    
+    public enum EstadoConvite{
+        sem_resposta0,aceite1,rejeitado2,anulado3
     }
     
-    private int codigo;
-    private Artista artista;
+    private int cod;
+    private ArtistaBanda artista;
     private String nome;
     private String email;
     private DataHora dataConvite;
     private DataHora dataLimite;
-    private Estado estado;
+    private EstadoConvite estadoConvite;
     
-    private static int nroConvite=0;
+    private static int numeroConvite=0;
     private static final String STRING_POR_OMISSAO="";
     
     public Convite(){
-        this.codigo = nroConvite++;
-        this.artista = new Artista();
+        this.cod = numeroConvite++;
+        this.artista = new ArtistaBanda();
         this.nome = STRING_POR_OMISSAO;
         this.email = STRING_POR_OMISSAO;
         this.dataConvite = new DataHora();
         this.dataLimite = new DataHora();
-        this.estado = Estado.sem_resposta;
+        this.estadoConvite = EstadoConvite.sem_resposta0;
     }
 
-    public Convite(Artista artista, String nome,String email, DataHora dataConvite, DataHora dataLimite, Estado estado) {
-        this.codigo = nroConvite++; 
-        this.artista = new Artista(artista);
+    public Convite(ArtistaBanda artista, String nome,String email, DataHora dataConvite, DataHora dataLimite, EstadoConvite estadoConvite) {
+        this.cod = numeroConvite++; 
+        this.artista = new ArtistaBanda(artista);
         this.nome = nome;
         this.email = email;
         this.dataConvite = new DataHora(dataConvite);
         this.dataLimite = new DataHora(dataLimite);
-        this.estado = estado;
+        this.estadoConvite = estadoConvite;
     }
     
     public Convite(Convite convite){
-        this.codigo = nroConvite++;
+        this.cod = numeroConvite++;
         this.artista = convite.artista;
         this.nome = convite.nome;
         this.email = convite.email;
         this.dataConvite = convite.dataConvite;
         this.dataLimite = convite.dataLimite;
-        this.estado = convite.estado;
+        this.estadoConvite = convite.estadoConvite;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getCod() {
+        return cod;
     }
 
-    public Artista getArtista() {
+    public ArtistaBanda getArtistaBanda() {
         return artista;
     }
 
@@ -79,15 +78,15 @@ public class Convite {
         return dataLimite;
     }
 
-    public Estado getEstado() {
-        return estado;
+    public EstadoConvite getEstado() {
+        return estadoConvite;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCod(int cod) {
+        this.cod = cod;
     }
 
-    public void setArtista(Artista artista) {
+    public void setArtistaBanda(ArtistaBanda artista) {
         this.artista = artista;
     }
 
@@ -107,8 +106,8 @@ public class Convite {
         this.dataLimite = dataLimite;
     }
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
+    public void setEstadoConvite(EstadoConvite estadoConvite) {
+        this.estadoConvite = estadoConvite;
     }
     
     public boolean valida(){
@@ -117,7 +116,13 @@ public class Convite {
 
     @Override
     public String toString() {
-        return "Convite{" + "codigo=" + codigo + ", artista=" + artista + ", nome=" + nome + ", email=" + email + ", dataConvite=" + dataConvite + ", dataLimite=" + dataLimite + ", estado=" + estado + '}';
+        return "Convite:" + "\n- Código Convite:" + cod 
+                          + "\n- Artista/Banda:" + artista 
+                          + "\n- Nome:" + nome 
+                          + "\n- Email:" + email 
+                          + "\n- Data Convite:" + dataConvite 
+                          + "\n- Data Limite:" + dataLimite 
+                          + "\n- Estado do Convite:" + estadoConvite;
     }
     
 }

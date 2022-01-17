@@ -7,20 +7,20 @@ package controller;
 
 import model.Festival;
 import model.GestFest;
-import model.ProgramaDiario;
-import model.ProgramacaoFestival;
+import model.ProgDia;
+import model.Programacao;
 
 /**
  *
  * @author danie
  */
-public class UC10_ConsultarProgramacaoFestival_Controller_1 {
+public class UC10_ConsultarProgramacaoFestival_Controller {
     private final GestFest empresa;
     private Festival festival;
-    private ProgramaDiario pd;
-    private ProgramacaoFestival pf;
+    private ProgDia pdia;
+    private Programacao pfestival;
 
-    public UC10_ConsultarProgramacaoFestival_Controller_1(GestFest empresa) {
+    public UC10_ConsultarProgramacaoFestival_Controller(GestFest empresa) {
         this.empresa = empresa;
     }
 

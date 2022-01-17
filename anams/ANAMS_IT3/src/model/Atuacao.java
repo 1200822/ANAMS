@@ -10,28 +10,28 @@ import java.time.LocalDateTime;
 
 
 public class Atuacao {
-    private int codigo;
-    private Artista artista;
+    private int cod;
+    private ArtistaBanda artista;
     private LocalDateTime dataInicio;
     private LocalDateTime dataFim;
     private Duration duracao;
     private Palco palco;
     
-    private static int nroAtuacao=0;
+    private static int numeroAtuacao=0;
     private static final int INT_POR_OMISSAO=0;
     
     public Atuacao(){
-        this.codigo = nroAtuacao++;
-        this.artista = new Artista();
+        this.cod = numeroAtuacao++;
+        this.artista = new ArtistaBanda();
         this.dataInicio = LocalDateTime.now();
         this.dataFim = LocalDateTime.now();
         this.duracao = Duration.ZERO;
         this.palco = new Palco();
     }
 
-    public Atuacao(Artista artista, LocalDateTime dataInicio,LocalDateTime dataFim,Duration duracao, Palco palco) {
-        this.codigo = nroAtuacao++;
-        this.artista = new Artista(artista);
+    public Atuacao(ArtistaBanda artista, LocalDateTime dataInicio,LocalDateTime dataFim,Duration duracao, Palco palco) {
+        this.cod = numeroAtuacao++;
+        this.artista = new ArtistaBanda(artista);
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.duracao = duracao;
@@ -39,7 +39,7 @@ public class Atuacao {
     }
     
     public Atuacao(Atuacao atuacao){
-        this.codigo = nroAtuacao++;
+        this.cod = numeroAtuacao++;
         this.artista = atuacao.artista;
         this.dataInicio = atuacao.dataInicio;
         this.dataFim = atuacao.dataFim;
@@ -47,11 +47,11 @@ public class Atuacao {
         this.palco = atuacao.palco;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getCod() {
+        return cod;
     }
 
-    public Artista getArtista() {
+    public ArtistaBanda getArtistaBanda() {
         return artista;
     }
 
@@ -71,12 +71,12 @@ public class Atuacao {
         return palco;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCod(int cod) {
+        this.cod = cod;
     }
 
-    public void setArtista(Artista artista) {
-        this.artista = new Artista(artista);
+    public void setArtistaBanda(ArtistaBanda artista) {
+        this.artista = new ArtistaBanda(artista);
     }
 
     public void setDataInicio(LocalDateTime dataInicio) {
@@ -101,7 +101,11 @@ public class Atuacao {
 
     @Override
     public String toString() {
-        return "Atuacao{" + "codigo=" + codigo + ", artista=" + artista + ", dataInicio=" + dataInicio + ", duracao=" + duracao + ", palco=" + palco + '}';
+        return "Atuação:" + "\n- Código:" + cod 
+                          + "\n- Artista:" + artista 
+                          + "\n- Data Início:" + dataInicio 
+                          + "\n- Duração:" + duracao 
+                          + "\n- Palco:" + palco;
     }
     
 }

@@ -14,37 +14,37 @@ import java.util.List;
  *
  * @author danie
  */
-public class ProgramacaoFestival {
-    private int referencia;
+public class Programacao {
+    private int ref;
     private Festival festival;
     private List<LocalDate> data;
-    private HashSet<ProgramaDiario> programadia;
+    private HashSet<ProgDia> progDia;
 
     private static int contador = 0;
 
-    public ProgramacaoFestival() {
-        this.referencia += contador;
+    public Programacao() {
+        this.ref += contador;
         this.festival = new Festival();
         this.data = new ArrayList<>();
-        this.programadia = new HashSet<>();
+        this.progDia = new HashSet<>();
     }
 
-    public ProgramacaoFestival(Festival festival, List<LocalDate> data, HashSet<ProgramaDiario> programadia, Artista artista, Palco palco) {
-        this.referencia += contador;
+    public Programacao(Festival festival, List<LocalDate> data, HashSet<ProgDia> progDia, ArtistaBanda artista, Palco palco) {
+        this.ref += contador;
         this.festival = new Festival(festival);
         this.data = new ArrayList<>(data);
-        this.programadia = new HashSet<ProgramaDiario>(programadia);
+        this.progDia = new HashSet<ProgDia>(progDia);
     }
 
-    public ProgramacaoFestival(ProgramacaoFestival pf) {
-        this.referencia = pf.referencia;
-        this.festival = new Festival(pf.festival);
-        this.data = new ArrayList<>(pf.data);
-        this.programadia = new HashSet<ProgramaDiario>(pf.programadia);
+    public Programacao(Programacao pfestival) {
+        this.ref = pfestival.ref;
+        this.festival = new Festival(pfestival.festival);
+        this.data = new ArrayList<>(pfestival.data);
+        this.progDia = new HashSet<ProgDia>(pfestival.progDia);
     }
 
-    public int getReferencia() {
-        return referencia;
+    public int getRef() {
+        return ref;
     }
 
     public Festival getFestival() {
@@ -55,8 +55,8 @@ public class ProgramacaoFestival {
         return new ArrayList<>(data);
     }
 
-    public HashSet<ProgramaDiario> getProgramadia() {
-        return programadia;
+    public HashSet<ProgDia> getProgDia() {
+        return progDia;
     }
 
     public void setFestival(Festival festival) {
@@ -67,8 +67,8 @@ public class ProgramacaoFestival {
         this.data = new ArrayList<>(data);
     }
 
-    public void setProgramadia(HashSet<ProgramaDiario> programadia) {
-        this.programadia = programadia;
+    public void setProgramadia(HashSet<ProgDia> programadia) {
+        this.progDia = progDia;
     }
     
     public boolean valida(){
@@ -77,6 +77,8 @@ public class ProgramacaoFestival {
 
     @Override
     public String toString() {
-        return "ProgramacaoFestival{" + "referencia=" + referencia + ", festival=" + festival + ", programadia=" + programadia + '}';
+        return "ProgramacaoFestival:" + "\n - Referência:" + ref
+                                      + "\n - Festival:" + festival 
+                                      + "\n - Programa Diário:" + progDia;
     }
 }

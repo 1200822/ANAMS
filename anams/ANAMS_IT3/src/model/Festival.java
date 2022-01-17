@@ -2,100 +2,98 @@ package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
-import model.Convite.Estado;
-import utilitarios.Data;
-import utilitarios.DataHora;
+
 
 
 public class Festival {
-    private int referenciaFestival;
-    private String designacaoFestival;
-    private ArrayList<Entidade> entidadeColaboradora;
-    private String edicaoFestival;
-    private LocalDate dataInicioFestival;
-    private LocalDate dataFimFestival;
-    private Recinto recintoFestival;
+    private int refFestival;
+    private String dsgFestival;
+    private ArrayList<Entidade> entColaboradoras;
+    private String edicao;
+    private LocalDate dataInicio;
+    private LocalDate dataFim;
+    private Recinto recinto;
     private List<Convite> lstConvites;
     
-    private static int nroFestival=0;
+    private static int numeroFestival=0;
     
     private static final String STRING_POR_OMISSAO="";
     
     public Festival(){
-        this.referenciaFestival=nroFestival++;
-        this.designacaoFestival=STRING_POR_OMISSAO;
-        this.entidadeColaboradora = new ArrayList<>();
-        this.edicaoFestival=STRING_POR_OMISSAO;
-        this.dataInicioFestival = LocalDate.now();
-        this.dataFimFestival = LocalDate.now();
-        this.recintoFestival=new Recinto();
+        this.refFestival=numeroFestival++;
+        this.dsgFestival=STRING_POR_OMISSAO;
+        this.entColaboradoras = new ArrayList<>();
+        this.edicao=STRING_POR_OMISSAO;
+        this.dataInicio = LocalDate.now();
+        this.dataFim = LocalDate.now();
+        this.recinto=new Recinto();
         this.lstConvites = new ArrayList<>();
     }
     
-    public Festival(String designacao,String edicao,LocalDate dataInicioFestival, LocalDate dataFimFestival,Recinto recinto){
-        this.referenciaFestival=nroFestival++;
-        this.designacaoFestival=designacao;
-        this.entidadeColaboradora = new ArrayList<>();
-        this.edicaoFestival=edicao;
-        this.dataInicioFestival=dataInicioFestival;
-        this.dataFimFestival=dataFimFestival;
-        this.recintoFestival=new Recinto(recinto);
+    public Festival(String dsgFestival,String edicao,LocalDate dataInicio, LocalDate dataFim,Recinto recinto){
+        this.refFestival=numeroFestival++;
+        this.dsgFestival=dsgFestival;
+        this.entColaboradoras = new ArrayList<>();
+        this.edicao=edicao;
+        this.dataInicio=dataInicio;
+        this.dataFim=dataFim;
+        this.recinto=new Recinto(recinto);
         this.lstConvites = new ArrayList<>();
     }
     
-    public Festival(String designacao,ArrayList<Entidade> entidadeColaboradora,String edicao,LocalDate dataInicioFestival, LocalDate dataFimFestival,Recinto recinto){
-        this.referenciaFestival=nroFestival++;
-        this.designacaoFestival=designacao;
-        this.entidadeColaboradora = new ArrayList<> (entidadeColaboradora);
-        this.edicaoFestival=edicao;
-        this.dataInicioFestival=dataInicioFestival;
-        this.dataFimFestival=dataFimFestival;
-        this.recintoFestival=new Recinto(recinto);
+    public Festival(String dsgFestival,ArrayList<Entidade> entColaboradoras,String edicao,LocalDate dataInicio, LocalDate dataFim,Recinto recinto){
+        this.refFestival=numeroFestival++;
+        this.dsgFestival=dsgFestival;
+        this.entColaboradoras = new ArrayList<> (entColaboradoras);
+        this.edicao=edicao;
+        this.dataInicio=dataInicio;
+        this.dataFim=dataFim;
+        this.recinto=new Recinto(recinto);
         this.lstConvites = new ArrayList<>();
     }
     
-    public Festival(Festival festival){
-        this.referenciaFestival=nroFestival++;
-        this.designacaoFestival=festival.designacaoFestival;
-        this.edicaoFestival=festival.edicaoFestival;
-        this.dataInicioFestival=festival.dataInicioFestival;
-        this.dataFimFestival=festival.dataFimFestival;
-        this.recintoFestival=new Recinto(festival.recintoFestival);
-        this.lstConvites = new ArrayList<Convite>(festival.lstConvites);
+    public Festival(Festival f){
+        this.refFestival=numeroFestival++;
+        this.dsgFestival=f.dsgFestival;
+        this.edicao=f.edicao;
+        this.dataInicio=f.dataInicio;
+        this.dataFim=f.dataFim;
+        this.recinto=new Recinto(f.recinto);
+        this.lstConvites = new ArrayList<Convite>(f.lstConvites);
     }
     
     public Convite novoConvite(){
         return new Convite();
     }
 
-    public int getReferenciaFestival() {
-        return referenciaFestival;
+    public int getRefFestival() {
+        return refFestival;
     }
 
-    public String getDesignacaoFestival() {
-        return designacaoFestival;
+    public String getDsgFestival() {
+        return dsgFestival;
     }
 
-    public ArrayList<Entidade> getEntidadeColaboradora() {
-        return entidadeColaboradora;
+    public ArrayList<Entidade> getEntColaboradoras() {
+        return entColaboradoras;
     }
 
-    public String getEdicaoFestival() {
-        return edicaoFestival;
+    public String getEdicao() {
+        return edicao;
     }
 
-    public LocalDate getDataInicioFestival() {
-        return dataInicioFestival;
+    public LocalDate getDataInicio() {
+        return dataInicio;
     }
     
-    public LocalDate getDataFimFestival(){
-        return dataFimFestival;
+    public LocalDate getDataFim(){
+        return dataFim;
     }
     
-    public Recinto getRecintoFestival() {
-        return recintoFestival;
+    public Recinto getRecinto() {
+        return recinto;
     }
 
     public List<Convite> getLstConvites() {
@@ -103,32 +101,32 @@ public class Festival {
     }
     
 
-    public void setReferenciaFestival(int referenciaFestival) {
-        this.referenciaFestival = referenciaFestival;
+    public void setRefFestival(int refFestival) {
+        this.refFestival = refFestival;
     }
     
-    public void setDesignacaoFestival(String designacaoFestival) {
-        this.designacaoFestival = designacaoFestival;
+    public void setDsgFestival(String dsgFestival) {
+        this.dsgFestival = dsgFestival;
     }
 
-    public void setEntidadeColaboradora(ArrayList<Entidade> entidadeColaboradora) {
-        this.entidadeColaboradora = entidadeColaboradora;
+    public void setEntColaboradoras(ArrayList<Entidade> entColaboradoras) {
+        this.entColaboradoras = entColaboradoras;
     }
 
-    public void setEdicaoFestival(String edicaoFestival) {
-        this.edicaoFestival = edicaoFestival;
+    public void setEdicao(String edicao) {
+        this.edicao = edicao;
     }
 
-    public void setDataInicioFestival(LocalDate dataInicioFestival) {
-        this.dataInicioFestival = dataInicioFestival;
+    public void setDataInicio(LocalDate dataInicio) {
+        this.dataInicio = dataInicio;
     }
     
-    public void setDataFimFestival(LocalDate dataFimFestival){
-        this.dataFimFestival = dataFimFestival;
+    public void setDataFim(LocalDate dataFim){
+        this.dataFim = dataFim;
     }
 
-    public void setRecintoFestival(Recinto recintoFestival) {
-        this.recintoFestival = recintoFestival;
+    public void setRecinto(Recinto recinto) {
+        this.recinto = recinto;
     }
 
     public void setLstConvites(List<Convite> lstConvites) {
@@ -150,7 +148,6 @@ public class Festival {
         {
            // Escrever aqui o código de validação
         
-           //
            bRet = true; 
         }
         return bRet;
@@ -172,9 +169,9 @@ public class Festival {
         return false;
     }
     
-    public Convite procurarConvite(int codigo){
+    public Convite procurarConvite(int cod){
         for (Convite c: lstConvites) {
-            if (c.getCodigo() == codigo) {
+            if (c.getCod() == cod) {
                 return c;
             }
         }
@@ -190,16 +187,23 @@ public class Festival {
             return false;
         }
         final Festival other = (Festival) obj;
-        return this.referenciaFestival == other.referenciaFestival
-                && this.designacaoFestival.equalsIgnoreCase(other.designacaoFestival)
-                && this.entidadeColaboradora.equals(other.entidadeColaboradora)
-                && this.edicaoFestival.equalsIgnoreCase(other.designacaoFestival)
-                && this.dataInicioFestival.equals(other.dataInicioFestival)
-                && this.recintoFestival.equals(other.recintoFestival);
+        return this.refFestival == other.refFestival
+                && this.dsgFestival.equalsIgnoreCase(other.dsgFestival)
+                && this.entColaboradoras.equals(other.entColaboradoras)
+                && this.edicao.equalsIgnoreCase(other.dsgFestival)
+                && this.dataInicio.equals(other.dataInicio)
+                && this.dataFim.equals(other.dataFim)
+                && this.recinto.equals(other.recinto);
     }
 
     @Override
     public String toString() {
-        return "Festival{" + "referenciaFestival=" + referenciaFestival + ", designacaoFestival=" + designacaoFestival + ", entidadeColaboradora=" + entidadeColaboradora + ", edicaoFestival=" + edicaoFestival + ", dataInicioFestival=" + dataInicioFestival + ", recintoFestival=" + recintoFestival + '}';
+        return "Festival:" + "\n - Referência do Festival=" + refFestival 
+                           + "\n - Designação do Festival:" + dsgFestival 
+                           + "\n - Entidades Colaboradoras:" + entColaboradoras 
+                           + "\n - Edição do Festival:" + edicao
+                           + "\n - Data Início Festival:" + dataInicio 
+                           + "\n - Data Fim do Festival:" + dataFim
+                           + "\n - Recinto do Festival=" + recinto;
     }
 }

@@ -25,9 +25,9 @@ public class UC06_AssociarEntidade_Controller {
     }
 
     public boolean associarFestivalEntidade(){
-        ArrayList<Entidade> e = this.festival.getEntidadeColaboradora();
+        ArrayList<Entidade> e = this.festival.getEntColaboradoras();
         e.add(entidade);
-        this.festival.setEntidadeColaboradora(e);
+        this.festival.setEntColaboradoras(e);
         return true;
     }
 

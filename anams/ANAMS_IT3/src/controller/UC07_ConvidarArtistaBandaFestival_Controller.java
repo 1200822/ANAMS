@@ -8,7 +8,7 @@ package controller;
 
 import model.ArtistaBanda;
 import model.Convite;
-import model.Convite.Estado;
+import model.Convite.EstadoConvite;
 import model.Festival;
 import model.GestFest;
 import utils.DataHora;
@@ -51,7 +51,7 @@ public class UC07_ConvidarArtistaBandaFestival_Controller {
         return this.convite.getDataLimite();
     }
     
-    public Estado getEstadoConvite(){
+    public EstadoConvite getEstadoConvite(){
         return this.convite.getEstado();
     }
     
@@ -75,8 +75,8 @@ public class UC07_ConvidarArtistaBandaFestival_Controller {
         this.convite.setDataLimite(dataLimite);
     }
     
-    public void setEstadoConvite(Estado estado){
-        this.convite.setEstado(estado);
+    public void setEstadoConvite(EstadoConvite estado){
+        this.convite.setEstadoConvite(estado);
     }
     
     public void novoArtista(){

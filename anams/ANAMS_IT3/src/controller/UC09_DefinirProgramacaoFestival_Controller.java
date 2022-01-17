@@ -9,14 +9,14 @@ import java.time.LocalDate;
 import model.ArtistaBanda;
 import model.Festival;
 import model.GestFest;
-import model.ProgramaDiario;
-import model.ProgramacaoFestival;
+import model.ProgDia;
+import model.Programacao;
 
 public class UC09_DefinirProgramacaoFestival_Controller {
     private GestFest empresa;
     private Festival festival;
-    private ProgramacaoFestival pf;
-    private ProgramaDiario pd;
+    private Programacao pfestival;
+    private ProgDia pdia;
 
     public UC09_DefinirProgramacaoFestival_Controller(GestFest empresa) {
         this.empresa = empresa;
@@ -34,28 +34,28 @@ public class UC09_DefinirProgramacaoFestival_Controller {
         return this.festival;
     }
 
-    public LocalDate getDataInicioFestival() {
-        return festival.getDataInicioFestival();
+    public LocalDate getDataInicio() {
+        return festival.getDataInicio();
     }
 
-    public LocalDate getDataFimFestival() {
-        return festival.getDataFimFestival();
+    public LocalDate getDataFim() {
+        return festival.getDataFim();
     }
 
-    public ProgramacaoFestival getPf() {
-        return pf;
+    public Programacao getPfestival() {
+        return pfestival;
     }
 
-    public void setPf(ProgramacaoFestival pf) {
-        this.pf = pf;
+    public void setPf(Programacao pf) {
+        this.pfestival = pfestival;
     }
 
-    public ProgramaDiario getPd() {
-        return pd;
+    public ProgDia getPdia() {
+        return pdia;
     }
 
-    public void setPd(ProgramaDiario pd) {
-        this.pd = pd;
+    public void setPdia(ProgDia pdia) {
+        this.pdia = pdia;
     }
 
     public ArtistaBanda ProcurarArtista(String artista) {

@@ -5,7 +5,7 @@
  */
 package controller;
 import model.Convite;
-import model.Convite.Estado;
+import model.Convite.EstadoConvite;
 import model.Festival;
 import model.GestFest;
 
@@ -34,8 +34,8 @@ public class UC08_AlterarEstadoConvite_Controller {
         return this.festival;
     }
     
-    public boolean alteraEstadoConvite(Estado estado){
-        this.convite.setEstado(estado);
+    public boolean alteraEstadoConvite(EstadoConvite estado){
+        this.convite.setEstadoConvite(estado);
         return true;
     }
     

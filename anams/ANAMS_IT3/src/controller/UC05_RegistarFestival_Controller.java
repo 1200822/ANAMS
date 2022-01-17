@@ -1,7 +1,6 @@
 package controller;
 
 import java.time.LocalDate;
-import java.util.Date;
 import model.Festival;
 import model.GestFest;
 import model.Recinto;
@@ -19,44 +18,44 @@ public class UC05_RegistarFestival_Controller {
         this.festival=empresa.novoFestival();
     }
     
-    public String getDesignacao(){
-        return this.festival.getDesignacaoFestival();
+    public String getDsgFestival(){
+        return this.festival.getDsgFestival();
     }
     
-    public String getEdicaoFestival(){
-        return this.festival.getEdicaoFestival();
+    public String getEdicao(){
+        return this.festival.getEdicao();
     }
     
-    public LocalDate getDataInicioFestival(){
-        return this.festival.getDataInicioFestival();
+    public LocalDate getDataInicio(){
+        return this.festival.getDataInicio();
     }
     
-    public LocalDate getDataFimFestival(){
-        return this.festival.getDataFimFestival();
+    public LocalDate getDataFim(){
+        return this.festival.getDataFim();
     }
     
-    public Recinto getRecintoFestival(){
-        return new Recinto(this.festival.getRecintoFestival());
+    public Recinto getRecinto(){
+        return new Recinto(this.festival.getRecinto());
     }
     
-    public void setDesignacao(String designacao){
-        this.festival.setDesignacaoFestival(designacao);
+    public void setDsgFestival(String dsgFestival){
+        this.festival.setDsgFestival(dsgFestival);
     }
     
-    public void setEdicaoFestival(String edicao){
-        this.festival.setEdicaoFestival(edicao);
+    public void setEdicao(String edicao){
+        this.festival.setEdicao(edicao);
     }
     
-    public void setDataInicioFestival(LocalDate dataInicio){
-        this.festival.setDataInicioFestival(dataInicio);
+    public void setDataInicio(LocalDate dataInicio){
+        this.festival.setDataInicio(dataInicio);
     }
     
-    public void setDataFimFestival(LocalDate dataFim){
-        this.festival.setDataFimFestival(dataFim);
+    public void setDataFim(LocalDate dataFim){
+        this.festival.setDataFim(dataFim);
     }
     
-    public void setRecintoFestival(Recinto recinto){
-        this.festival.setRecintoFestival(recinto);
+    public void setRecinto(Recinto recinto){
+        this.festival.setRecinto(recinto);
     }
     
     public boolean registaFestival(){

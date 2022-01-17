@@ -8,44 +8,44 @@ package model;
 import java.time.LocalDate;
 import java.util.HashSet;
 
-public class ProgramaDiario {
-    private int referencia;
+    public class ProgDia {
+    private int ref;
     private Festival festival;
     private LocalDate data;
     private HashSet<Atuacao> lstAtuacoes;
 
     private static int contador = 0;
 
-    public ProgramaDiario() {
-        this.referencia += contador;
-        this.data = LocalDate.now();
+    public ProgDia() {
+        this.ref += contador;
         this.festival = new Festival();
+        this.data = LocalDate.now();
         this.lstAtuacoes = new HashSet<>();
     }
 
-    public ProgramaDiario(Festival festival, LocalDate data) {
-        this.referencia += contador;
+    public ProgDia(Festival festival, LocalDate data) {
+        this.ref += contador;
         this.festival = new Festival(festival);
         this.data = data;
         this.lstAtuacoes = new HashSet<>();
     }
 
-    public ProgramaDiario(Festival festival, LocalDate data, HashSet<Atuacao> lsAtuacaos) {
-        this.referencia += contador;
+    public ProgDia(Festival festival, LocalDate data, HashSet<Atuacao> lsAtuacaos) {
+        this.ref += contador;
         this.festival = new Festival(festival);
         this.data = data;
         this.lstAtuacoes = new HashSet<Atuacao>(lstAtuacoes);
     }
 
-    public ProgramaDiario(ProgramaDiario pd) {
-        this.referencia = pd.referencia;
-        this.festival = new Festival(pd.festival);
-        this.data = pd.data;
-        this.lstAtuacoes = new HashSet<Atuacao>(pd.lstAtuacoes);
+    public ProgDia(ProgDia progd) {
+        this.ref = progd.ref;
+        this.festival = new Festival(progd.festival);
+        this.data = progd.data;
+        this.lstAtuacoes = new HashSet<Atuacao>(progd.lstAtuacoes);
     }
 
     public int getReferencia() {
-        return referencia;
+        return ref;
     }
 
     public Festival getFestival() {
@@ -74,6 +74,9 @@ public class ProgramaDiario {
 
     @Override
     public String toString() {
-        return "ProgramaDiario{" + "referencia=" + referencia + ", festival=" + festival + ", data=" + data + ", lstAtuacoes=" + lstAtuacoes + '}';
+        return "ProgramaDiario:" + "\n - Referencia:" + ref 
+                                 + "\n - Festival:" + festival 
+                                 + "\n - Data:" + data 
+                                 + "\n - Lista de Atuações:" + lstAtuacoes;
     }
 }
